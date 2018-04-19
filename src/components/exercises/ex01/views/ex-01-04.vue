@@ -1,24 +1,19 @@
 <template lang="html">
   <div class="">
     <div class="font-sans container mx-auto">
-      <h2 class="font-light">Choose important stakeholders</h2>
-      <list-container :list="list" mode="selection"></list-container>
-      <div class="flex justify-end">
-        <router-link class="my-4 bg-red text-white text-xl rounded overflow-hidden m-2 font-light border border-red-dark shadow-md px-8 py-2" to="/ex-01/03">Next</router-link>
-      </div>
+      <notes-container :list="refinedList" list-count="listCount"></notes-container>
     </div>
   </div>
-
 </template>
 
 <script lang="js">
 import FormInput from '@/components/form/form-input'
-import ListContainer from '@/components/list/list-container'
+import NotesContainer from '@/components/notes/notes-container'
 import { EventBus } from '@/event-bus.js'
 export default {
-  name: 'ex-02',
-  props: ['list'],
-  components: { FormInput, ListContainer },
+  name: 'ex-04',
+  props: ['list', 'refinedList', 'listCount'],
+  components: { FormInput, NotesContainer },
   mounted () {
 
   },

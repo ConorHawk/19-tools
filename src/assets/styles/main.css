@@ -96,3 +96,18 @@
 .list-btn-sort {
   @apply .px-8 .py-2 .bg-blue .text-white .text-xl .rounded .overflow-hidden .m-2 .font-light .flex .border .border-blue-dark .shadow-md;
 }
+
+.page-slide-enter-active, .page-slide-leave-active {
+  transition: all .3s ease;
+  transform: translateY(0)
+}
+
+.page-slide-enter {
+  opacity: 0;
+  transform: translateY(100%)
+}
+
+.page-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-100%)
+}

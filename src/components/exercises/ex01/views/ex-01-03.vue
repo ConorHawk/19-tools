@@ -3,6 +3,9 @@
     <div class="font-sans container mx-auto">
       <h2 class="font-light">Prioritize important stakeholders</h2>
       <list-container :list="refinedList" mode="order" list-count="listCount"></list-container>
+      <div class="flex justify-end">
+        <router-link class="my-4 bg-red text-white text-xl rounded overflow-hidden m-2 font-light border border-red-dark shadow-md px-8 py-2" to="/ex-01/04">Next</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -12,7 +15,7 @@ import FormInput from '@/components/form/form-input'
 import ListContainer from '@/components/list/list-container'
 import { EventBus } from '@/event-bus.js'
 export default {
-  name: 'ex-01',
+  name: 'ex-03',
   props: ['list', 'refinedList', 'listCount'],
   components: { FormInput, ListContainer },
   mounted () {

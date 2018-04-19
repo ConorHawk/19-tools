@@ -1,7 +1,9 @@
 <template lang="html">
   <section class="home">
     <h1 class="font-sans">Exercise 1</h1>
-    <router-view :list="list" :refined-list="selectedStakeholders"></router-view>
+    <transition name="page-slide" mode="out-in">
+      <router-view :list="list" :refined-list="selectedStakeholders"></router-view>
+    </transition>
   </section>
 </template>
 
@@ -31,6 +33,9 @@ export default {
       this.list.splice(arrIndex, 1)
       this.list.splice(targetIndex, 0, tempObj)
     })
+    EventBus.$on('add-stakeholder-requirement', stakeholderIndex => {
+      this.list[stakeholderIndex].requirements.push('')
+    })
   },
   beforeDestroy () {
     EventBus.$off()
@@ -40,11 +45,13 @@ export default {
       list: [
         {
           name: 'test',
-          selected: false
+          selected: true,
+          requirements: []
         },
         {
           name: 'test2',
-          selected: false
+          selected: true,
+          requirements: []
         }
       ]
     }
