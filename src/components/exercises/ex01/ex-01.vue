@@ -1,7 +1,7 @@
 <template lang="html">
   <section class="home">
     <h1 class="font-sans">Exercise 1</h1>
-    <router-view :list="list"></router-view>
+    <router-view :list="list" :refined-list="selectedStakeholders"></router-view>
   </section>
 </template>
 
@@ -19,8 +19,15 @@ export default {
       this.list.splice(arrIndex, 1)
     })
     EventBus.$on('select-list-item', arrIndex => {
+      console.log(this.list[arrIndex])
       this.list[arrIndex].selected = !this.list[arrIndex].selected
+      var tempObj = this.list[arrIndex]
+      this.list.splice(arrIndex, 1)
+      tempObj.selected ? this.list.unshift(tempObj) : this.list.push(tempObj)
     })
+  },
+  beforeDestroy () {
+    EventBus.$off()
   },
   data () {
     return {
@@ -31,7 +38,7 @@ export default {
         },
         {
           name: 'test2',
-          selected: true
+          selected: false
         }
       ]
     }
