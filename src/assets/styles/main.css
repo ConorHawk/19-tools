@@ -29,6 +29,7 @@
  * @import "components/forms";
  */
 
+@tailwind components;
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -55,3 +56,16 @@
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
+
+.list-complete-item {
+  transition: all 400ms ease;
+}
+
+.list-complete-enter, .list-complete-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.list-complete-leave-active {
+  position: absolute;
+}
