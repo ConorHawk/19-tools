@@ -36,6 +36,12 @@ export default {
     EventBus.$on('add-stakeholder-requirement', stakeholderIndex => {
       this.list[stakeholderIndex].requirements.push('')
     })
+    EventBus.$on('update-note', payload => {
+      var value = payload.value
+      var noteIndex = payload.index
+      var parentIndex = payload.parentIndex
+      this.list[parentIndex].requirements[noteIndex] = value
+    })
   },
   beforeDestroy () {
     EventBus.$off()

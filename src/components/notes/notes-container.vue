@@ -6,7 +6,7 @@
     <div class="flex flex-col bg-blue-lighter">
       <div class="flex p-2" v-for="(note, index) in activeNotes" v-bind:key="index">
         <p class="p-2">{{index + 1}}.</p>
-        <textarea class="p-4 bg-white"></textarea>
+        <textarea :value="note" v-on:input="changeNote($event.target.value, index)" class="p-4 bg-white"></textarea>
       </div>
       <button class="bg-blue-lightest m-2 p-2" @click="addRequirement(activeStakeholder)" type="button" name="button">New requirement</button>
     </div>
@@ -40,6 +40,14 @@ export default {
     },
     addRequirement: function (stakeholderIndex) {
       EventBus.$emit('add-stakeholder-requirement', stakeholderIndex)
+    },
+    changeNote: function (value, index) {
+      var payload = {
+        value: value,
+        index: index,
+        parentIndex: this.activeStakeholder
+      }
+      EventBus.$emit('update-note', payload)
     }
   }
 }

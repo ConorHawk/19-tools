@@ -13,7 +13,6 @@
 <script lang="js">
 import FormInput from '@/components/form/form-input'
 import ListContainer from '@/components/list/list-container'
-import { EventBus } from '@/event-bus.js'
 export default {
   name: 'ex-03',
   props: ['list', 'refinedList', 'listCount'],
@@ -27,22 +26,6 @@ export default {
     }
   },
   methods: {
-    addItem: function () {
-      // Checks where the name exists in the array already
-      var arrayContainsString = (this.listNames.indexOf(this.inputtedStakeholder) > -1)
-      if (arrayContainsString || this.inputtedStakeholder === '') {
-        // If the name does already exist, send an event to the list item (Doesnt do anything atm but the event is there)
-        EventBus.$emit('highlight-duplicate', this.inputtedStakeholder)
-      } else {
-        var item = {
-          name: this.inputtedStakeholder,
-          selected: false
-        }
-        // Otherwise send an event to the page controller to add an event item
-        EventBus.$emit('add-list-item', item)
-        this.inputtedStakeholder = ''
-      }
-    }
   },
   computed: {
     listNames: function () {

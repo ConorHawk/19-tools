@@ -46,7 +46,8 @@ export default {
       } else {
         var item = {
           name: this.inputtedStakeholder,
-          selected: false
+          selected: false,
+          requirements: []
         }
         // Otherwise send an event to the page controller to add an event item
         EventBus.$emit('add-list-item', item)
