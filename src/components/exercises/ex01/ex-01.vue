@@ -19,11 +19,17 @@ export default {
       this.list.splice(arrIndex, 1)
     })
     EventBus.$on('select-list-item', arrIndex => {
-      console.log(this.list[arrIndex])
       this.list[arrIndex].selected = !this.list[arrIndex].selected
       var tempObj = this.list[arrIndex]
       this.list.splice(arrIndex, 1)
       tempObj.selected ? this.list.unshift(tempObj) : this.list.push(tempObj)
+    })
+    EventBus.$on('move-item', payload => {
+      var arrIndex = payload.index
+      var targetIndex = payload.targetIndex
+      var tempObj = this.list[arrIndex]
+      this.list.splice(arrIndex, 1)
+      this.list.splice(targetIndex, 0, tempObj)
     })
   },
   beforeDestroy () {

@@ -2,7 +2,7 @@
   <div class="">
     <div class="font-sans container mx-auto">
       <h2 class="font-light">Prioritize important stakeholders</h2>
-      <list-container :list="refinedList" mode="order"></list-container>
+      <list-container :list="refinedList" mode="order" list-count="listCount"></list-container>
     </div>
   </div>
 </template>
@@ -13,7 +13,7 @@ import ListContainer from '@/components/list/list-container'
 import { EventBus } from '@/event-bus.js'
 export default {
   name: 'ex-01',
-  props: ['list', 'refinedList'],
+  props: ['list', 'refinedList', 'listCount'],
   components: { FormInput, ListContainer },
   mounted () {
 

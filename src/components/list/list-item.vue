@@ -10,8 +10,8 @@
     <div v-if="orderMode" class="list-btn-default justify-between items-center">
       <p class=" px-8 py-2">{{item.name}}</p>
       <div class="flex flex-col h-full">
-        <button class="text-white bg-blue-dark px-4 text-sm py-2" @click="moveUp()" type="button" name="button">^</button>
-        <button class="text-white bg-blue-dark px-4 text-sm py-2" @click="moveDown()" type="button" name="button">v</button>
+        <button :disabled="itemIndex === 0" class="text-white bg-blue-dark px-4 text-sm py-2" @click="moveUp()" type="button" name="button">^</button>
+        <button :disabled="itemIndex === (listLength - 1)" class="text-white bg-blue-dark px-4 text-sm py-2" @click="moveDown()" type="button" name="button">v</button>
       </div>
 
     </div>
@@ -23,7 +23,7 @@
 import { EventBus } from '@/event-bus.js'
 export default {
   name: 'list-item',
-  props: ['item', 'itemIndex', 'mode'],
+  props: ['item', 'itemIndex', 'mode', 'listLength'],
   data: function () {
     return {
     }
@@ -34,6 +34,14 @@ export default {
     },
     selectItem: function () {
       EventBus.$emit('select-list-item', this.itemIndex)
+    },
+    moveUp: function () {
+      var upIndex = this.itemIndex - 1
+      EventBus.$emit('move-item', {targetIndex: upIndex, index: this.itemIndex})
+    },
+    moveDown: function () {
+      var downIndex = this.itemIndex + 1
+      EventBus.$emit('move-item', {targetIndex: downIndex, index: this.itemIndex})
     }
   },
   mounted: function () {
