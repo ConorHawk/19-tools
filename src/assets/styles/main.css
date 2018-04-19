@@ -69,3 +69,30 @@
 .list-complete-leave-active {
   position: absolute;
 }
+
+.list-complete-item>button {
+  transform: scale(0.8);
+  opacity: 0.5;
+  transition: .2s all ease;
+}
+
+.list-complete-item>button.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.list-container-default {
+  @apply .pt-2 .flex .flex-wrap .relative;
+}
+
+.list-container-order {
+  @apply .block;
+}
+
+.list-btn-default {
+  @apply .bg-blue .text-white .text-xl .rounded .overflow-hidden .m-2 .font-light .flex .border .border-blue-dark .shadow-md;
+}
+
+.list-btn-sort {
+  @apply .px-8 .py-2 .bg-blue .text-white .text-xl .rounded .overflow-hidden .m-2 .font-light .flex .border .border-blue-dark .shadow-md;
+}

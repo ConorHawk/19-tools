@@ -1,19 +1,10 @@
 <template lang="html">
   <div class="">
     <div class="font-sans container mx-auto">
-      <div class="flex justify-center">
-        <form class="text-center flex flex-col" v-on:submit.prevent="addItem()">
-          <label class="text-xl pb-1" for="text-xl">Enter a stakeholder here:</label><br>
-          <div class="border border-blue inline-flex rounded-lg overflow-hidden shadow-md">
-            <input class="p-4 text-2xl" v-model="inputtedStakeholder" type="text" name="">
-            <button class="bg-blue text-white text-5xl flex items-center py-1 px-4" type="submit" name="button"><span>+</span></button>
-          </div>
-        </form>
-      </div>
-      <h2 class="font-light">Identified stakeholders</h2>
-      <list-container :list="list"></list-container>
+      <h2 class="font-light">Choose important stakeholders</h2>
+      <list-container :list="list" mode="selection"></list-container>
       <div class="flex justify-end">
-        <router-link class="my-4 bg-red text-white text-xl rounded overflow-hidden m-2 font-light border border-red-dark shadow-md px-8 py-2" to="/ex-01/02">Next</router-link>
+        <router-link class="my-4 bg-red text-white text-xl rounded overflow-hidden m-2 font-light border border-red-dark shadow-md px-8 py-2" to="/ex-01/03">Next</router-link>
       </div>
     </div>
   </div>
