@@ -9,9 +9,10 @@
         <tr class="border border-red" v-for="item in refinedList" v-bind:key="item.name">
           <td>{{item.name}}</td>
           <td >
-            <ol>
+            <ol class="p-0" v-if="item.requirements && item.requirements.length > 0">
               <li v-for="(requirement, index) in item.requirements" v-bind:key="requirement + index">{{requirement}}</li>
             </ol>
+            <span v-else>-</span>
           </td>
         </tr>
       </table>
