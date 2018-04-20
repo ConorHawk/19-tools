@@ -42,6 +42,21 @@ export default {
       var parentIndex = payload.parentIndex
       this.list[parentIndex].requirements[noteIndex] = value
     })
+    EventBus.$on('delete-note', payload => {
+      // var value = payload.value
+      var noteIndex = payload.index
+      var parentIndex = payload.parentIndex
+      this.list[parentIndex].requirements.splice(noteIndex, 1)
+    })
+    EventBus.$on('move-note', payload => {
+      var index = payload.index
+      var direction = payload.direction
+      var parentIndex = payload.parentIndex
+      var tempObj = this.list[parentIndex].requirements[index]
+      console.log(index + direction)
+      this.list[parentIndex].requirements.splice(index, 1)
+      this.list[parentIndex].requirements.splice(index + direction, 0, tempObj)
+    })
   },
   beforeDestroy () {
     EventBus.$off()

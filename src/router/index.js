@@ -8,6 +8,7 @@ import Ex01Pg01 from '@/components/exercises/ex01/views/ex-01-01'
 import Ex01Pg02 from '@/components/exercises/ex01/views/ex-01-02'
 import Ex01Pg03 from '@/components/exercises/ex01/views/ex-01-03'
 import Ex01Pg04 from '@/components/exercises/ex01/views/ex-01-04'
+import Ex01Pg05 from '@/components/exercises/ex01/views/ex-01-05'
 
 Vue.use(Router)
 
@@ -25,7 +26,8 @@ export default new Router({
         { path: '', component: Ex01Pg01 },
         { path: '02', component: Ex01Pg02 },
         { path: '03', component: Ex01Pg03 },
-        { path: '04', component: Ex01Pg04 }
+        { path: '04', component: Ex01Pg04 },
+        { path: '05', component: Ex01Pg05 }
       ]
     }
   ]

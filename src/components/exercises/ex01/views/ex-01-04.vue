@@ -2,6 +2,10 @@
   <div class="">
     <div class="font-sans container mx-auto">
       <notes-container :list="refinedList" list-count="listCount"></notes-container>
+      <div class="flex justify-end">
+        <router-link class="my-4 bg-purple text-white text-xl rounded overflow-hidden m-2 font-light border border-purple-dark shadow-md px-8 py-2" to="/ex-01/03">Back</router-link>
+        <router-link class="my-4 bg-red text-white text-xl rounded overflow-hidden m-2 font-light border border-red-dark shadow-md px-8 py-2" to="/ex-01/05">Next</router-link>
+      </div>
     </div>
   </div>
 </template>
