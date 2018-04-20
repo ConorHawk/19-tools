@@ -82,7 +82,7 @@
 }
 
 .list-container-default {
-  @apply .pt-2 .flex .flex-wrap .relative;
+  @apply .flex .flex-wrap .relative;
 }
 
 .list-container-order {
@@ -110,4 +110,8 @@
 .page-slide-leave-to {
   opacity: 0;
   transform: translateY(-100%)
+}
+
+.disabled {
+  @apply .text-white .bg-grey-darker border-grey-darkest pointer-events-none;
 }
