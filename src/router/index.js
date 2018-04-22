@@ -22,12 +22,42 @@ export default new Router({
       path: '/ex-01',
       name: 'Exercise_01',
       component: Ex01,
+      redirect: {
+        name: 'ex-01-01'
+      },
       children: [
-        { path: '', component: Ex01Pg01 },
-        { path: '02', component: Ex01Pg02 },
-        { path: '03', component: Ex01Pg03 },
-        { path: '04', component: Ex01Pg04 },
-        { path: '05', component: Ex01Pg05 }
+        {
+          path: '1',
+          name: 'ex-01-01',
+          component: Ex01Pg01,
+          meta: {
+            pageTitle: 'Add stakeholders'
+          }
+        }, {
+          path: '2',
+          component: Ex01Pg02,
+          meta: {
+            pageTitle: 'Add stakeholders2'
+          }
+        }, {
+          path: '3',
+          component: Ex01Pg03,
+          meta: {
+            pageTitle: 'Add stakeholders3'
+          }
+        }, {
+          path: '4',
+          component: Ex01Pg04,
+          meta: {
+            pageTitle: 'Add stakeholders4'
+          }
+        }, {
+          path: '5',
+          component: Ex01Pg05,
+          meta: {
+            pageTitle: 'Add stakeholders5'
+          }
+        }
       ]
     }
   ]

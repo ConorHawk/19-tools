@@ -1,21 +1,23 @@
 <template lang="html">
-  <section class="home">
-    <div class="container mx-auto m-4">
-      <h1 class="font-sans text-center">Exercise 1</h1>
-    </div>
+  <section class="flex flex-col h-full">
+    <module-header :pages="numberOfPages" :tool-name="toolName"></module-header>
     <transition name="page-slide" mode="out-in">
-      <router-view :list="list" :refined-list="selectedStakeholders"></router-view>
+      <router-view class="flex-1 flex items-center justify-center overflow-hidden" :list="list" :refined-list="selectedStakeholders"></router-view>
     </transition>
+    <module-footer :pages="numberOfPages" :tool-name="toolName"></module-footer>
   </section>
 </template>
 
 <script lang="js">
+import ModuleHeader from '@/components/module-header'
+import ModuleFooter from '@/components/module-footer'
 import { EventBus } from '@/event-bus.js'
 export default {
   name: 'ex-01',
   props: [],
-  components: { },
+  components: { ModuleHeader, ModuleFooter },
   mounted () {
+    console.log(this.$route)
     EventBus.$on('add-list-item', (item, refinedListLength) => {
       // If the item is being added at the end in the table, it needs to be pushed to the top of the array
       if (refinedListLength) {
@@ -74,6 +76,8 @@ export default {
   },
   data () {
     return {
+      numberOfPages: 5,
+      toolName: 'Stakeholder Requirements',
       list: [
         {
           name: 'test',
@@ -134,6 +138,7 @@ export default {
       return count
     }
   }
+
 }
 </script>
 

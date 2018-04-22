@@ -115,3 +115,19 @@
 .disabled {
   @apply .text-white .bg-grey-darker border-grey-darkest pointer-events-none;
 }
+
+.tools-input {
+  @apply border border-grey .w-full .p-2 .resize-none;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+html, body {
+  height: 100%;
+}

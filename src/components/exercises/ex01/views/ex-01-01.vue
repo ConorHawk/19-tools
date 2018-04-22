@@ -12,9 +12,6 @@
       </div>
       <h2 class="font-light">Identified stakeholders</h2>
       <list-container :list="list"></list-container>
-      <div class="flex justify-end">
-        <router-link :disabled="nextDisabled" v-bind:class="{'disabled': nextDisabled}" class="my-4 bg-red text-white text-xl rounded overflow-hidden m-2 font-light border border-red-dark shadow-md px-8 py-2" to="/ex-01/02">Next</router-link>
-      </div>
     </div>
   </div>
 

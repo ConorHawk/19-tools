@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <nav-bar class="z-10"></nav-bar>
+  <div id="app" class="font-sans h-full overflow-hidden">
+    <!-- <nav-bar class="z-10"></nav-bar> -->
     <transition name="page-slide" mode="out-in">
       <router-view class="z-0"></router-view>
     </transition>
