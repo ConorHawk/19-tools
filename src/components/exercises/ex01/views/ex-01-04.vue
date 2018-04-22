@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="">
     <div class="font-sans container mx-auto">
-      <h2 class="font-light">Identify up to 5 key requirements for each stakeholder</h2>
+      <h2 class="font-light text-center">Identify up to 5 key requirements for each stakeholder</h2>
       <br>
       <notes-container :list="refinedList" list-count="listCount"></notes-container>
       <div class="flex justify-end">

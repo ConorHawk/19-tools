@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex justify-center">
     <div class="flex flex-col bg-blue-dark text-white">
       <button v-bind:class="{'bg-blue-darkest': index == activeStakeholder}" class="text-white py-2 px-8 text-left" @click="changeStakeholder(index)" v-for="(item, index) in list" type="button" name="button" v-bind:key="item.name">{{item.name}}</button>
     </div>
@@ -8,8 +8,8 @@
         <p class="p-2">{{index + 1}}.</p>
         <textarea :value="note" v-on:input="changeNote($event.target.value, index)" class="p-4 bg-white"></textarea>
         <div class="flex flex-col">
-          <button :disabled="index === 0" class="text-white bg-blue-dark px-4 text-sm py-2" @click="moveNote(index, -1)" type="button" name="button">^</button>
-          <button :disabled="index === (requirementsCount - 1)" class="text-white bg-blue-dark px-4 text-sm py-2" @click="moveNote(index, 1)" type="button" name="button">v</button>
+          <button :disabled="index === 0" class="text-white bg-blue-dark px-4 text-sm py-2" @click="moveNote(index, -1)" type="button" name="button"><i class="fas fa-caret-up"></i></button>
+          <button :disabled="index === (requirementsCount - 1)" class="text-white bg-blue-dark px-4 text-sm py-2" @click="moveNote(index, 1)" type="button" name="button"><i class="fas fa-caret-down"></i></button>
         </div>
       </div>
       <button class="bg-blue-lightest m-2 p-2" @click="addRequirement(activeStakeholder)" type="button" name="button">New requirement</button>

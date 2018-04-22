@@ -1,6 +1,8 @@
 <template lang="html">
   <section class="home">
-    <h1 class="font-sans">Exercise 1</h1>
+    <div class="container mx-auto m-4">
+      <h1 class="font-sans text-center">Exercise 1</h1>
+    </div>
     <transition name="page-slide" mode="out-in">
       <router-view :list="list" :refined-list="selectedStakeholders"></router-view>
     </transition>
@@ -14,11 +16,21 @@ export default {
   props: [],
   components: { },
   mounted () {
-    EventBus.$on('add-list-item', item => {
-      this.list.push(item)
+    EventBus.$on('add-list-item', (item, refinedListLength) => {
+      // If the item is being added at the end in the table, it needs to be pushed to the top of the array
+      if (refinedListLength) {
+        this.list.splice(refinedListLength, 0, item)
+      // Otherwise add it as usual
+      } else {
+        this.list.push(item)
+      }
     })
     EventBus.$on('remove-list-item', arrIndex => {
       this.list.splice(arrIndex, 1)
+    })
+    EventBus.$on('edit-list-item', payload => {
+      console.log(payload)
+      this.list[payload.index].name = payload.value
     })
     EventBus.$on('select-list-item', arrIndex => {
       this.list[arrIndex].selected = !this.list[arrIndex].selected
@@ -53,7 +65,6 @@ export default {
       var direction = payload.direction
       var parentIndex = payload.parentIndex
       var tempObj = this.list[parentIndex].requirements[index]
-      console.log(index + direction)
       this.list[parentIndex].requirements.splice(index, 1)
       this.list[parentIndex].requirements.splice(index + direction, 0, tempObj)
     })

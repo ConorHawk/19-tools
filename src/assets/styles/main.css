@@ -99,17 +99,17 @@
 
 .page-slide-enter-active, .page-slide-leave-active {
   transition: all .3s ease;
-  transform: translateY(0)
+  transform: translateX(0)
 }
 
 .page-slide-enter {
   opacity: 0;
-  transform: translateY(100%)
+  transform: translateX(200px)
 }
 
 .page-slide-leave-to {
   opacity: 0;
-  transform: translateY(-100%)
+  transform: translateX(-200px)
 }
 
 .disabled {

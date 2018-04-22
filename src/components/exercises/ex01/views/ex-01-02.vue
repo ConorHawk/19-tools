@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="">
     <div class="font-sans container mx-auto">
-      <h2 class="font-light">Choose <span v-bind:class="{'text-red font-bold': nextDisabled}">4-6</span> important stakeholders</h2>
+      <h2 class="font-light text-center pb-4">Choose <span v-bind:class="{'text-red font-bold': nextDisabled}">4-6</span> important stakeholders</h2>
       <list-container :list="list" mode="selection"></list-container>
       <div class="flex justify-end">
         <router-link class="my-4 bg-purple text-white text-xl rounded overflow-hidden m-2 font-light border border-purple-dark shadow-md px-8 py-2" to="/ex-01">Back</router-link>

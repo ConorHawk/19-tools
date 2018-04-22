@@ -3,10 +3,10 @@
     <div class="font-sans container mx-auto">
       <div class="flex justify-center">
         <form class="text-center flex flex-col" v-on:submit.prevent="addItem()">
-          <label class="text-xl pb-1" for="text-xl">Enter at least 4 stakeholders here:</label><br>
+          <label class="text-xl pb-1 font-light" for="text-xl">Enter at least 4 stakeholders here:</label><br>
           <div class="border border-blue inline-flex rounded-lg overflow-hidden shadow-md">
             <input class="p-4 text-2xl" v-model="inputtedStakeholder" type="text" name="">
-            <button class="bg-blue text-white text-5xl flex items-center py-1 px-4" type="submit" name="button"><span>+</span></button>
+            <button class="bg-blue text-white text-2xl flex items-center py-1 px-4" type="submit" name="button"><i class="fas fa-plus"></i></button>
           </div>
         </form>
       </div>

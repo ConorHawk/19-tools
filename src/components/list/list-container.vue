@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex justify-center">
     <div v-if="mode === 'order'" class="flex flex-col justify-around">
       <p class="text-xl" v-for="n in listCount" :key="'listNumber' + n">{{n}}.</p>
     </div>
