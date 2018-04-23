@@ -1,10 +1,10 @@
 <template>
   <div class="flex justify-center">
-    <div class="flex w-1/2 border border-grey">
+    <div class="flex w-1/2 border border-grey rounded-sm overflow-hidden shadow-lg">
       <div class="flex flex-col bg-white border-r border-grey">
-        <button v-bind:class="{'bg-grey': index == activeStakeholder}" v-for="(item, index) in list" v-bind:key="item.name" class="border-b text-left py-3 px-4 text-sm"  @click="changeStakeholder(index)" type="button" name="button">
+        <button v-bind:class="{'bg-grey-darkest text-white': index == activeStakeholder}" v-for="(item, index) in list" v-bind:key="item.name" class="border-b text-left py-3 px-4 text-sm"  @click="changeStakeholder(index)" type="button" name="button">
           <p class="font-medium pb-1">{{item.name}}</p>
-          <p class="">{{item.requirements.length}} requirements</p>
+          <p class="text-xs">{{item.requirements.length}} requirements</p>
         </button>
       </div>
       <div class="flex flex-col bg-grey-light flex-1">
@@ -22,7 +22,7 @@
         </div>
         <div class="mt-auto pt-4">
           <div class="border-t border-grey text-right">
-            <button class="m-2 p-2 text-grey-dark" @click="addRequirement(activeStakeholder)" type="button" name="button"><i class="fas fa-plus"></i></button>
+            <button class="m-2 p-2 text-grey-dark" @click="addRequirement(activeStakeholder)" type="button" name="button">Add requirement <i class="fas fa-plus"></i></button>
           </div>
         </div>
       </div>

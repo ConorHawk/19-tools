@@ -2,7 +2,7 @@
   <div>
     <div v-if="defaultMode" class="list-btn-default">
       <p class=" px-8 py-2">{{item.name}}</p>
-      <button class="text-white bg-blue-dark px-4 text-sm" @click="removeItem()" type="button" name="button"><i class="fas fa-times"></i></button>
+      <button class="text-white bg-black px-4 text-sm" @click="removeItem()" type="button" name="button"><i class="fas fa-times"></i></button>
     </div>
     <button @click="selectItem()" v-bind:class="{'active':item.selected}" v-if="selectionMode" class="list-btn-sort">
       {{item.name}}
@@ -10,8 +10,8 @@
     <div v-if="orderMode" class="list-btn-default justify-between items-center">
       <p class=" px-8 py-2">{{item.name}}</p>
       <div class="flex flex-col h-full">
-        <button :disabled="itemIndex === 0" class="text-white bg-blue-dark px-4 text-sm py-2" @click="moveUp()" type="button" name="button"><i class="fas fa-caret-up"></i></button>
-        <button :disabled="itemIndex === (listLength - 1)" class="text-white bg-blue-dark px-4 text-sm py-2" @click="moveDown()" type="button" name="button"><i class="fas fa-caret-down"></i></button>
+        <button :disabled="itemIndex === 0" class="text-white bg-black px-4 text-sm py-2" @click="moveUp()" type="button" name="button"><i class="fas fa-caret-up"></i></button>
+        <button :disabled="itemIndex === (listLength - 1)" class="text-white bg-black px-4 text-sm py-2" @click="moveDown()" type="button" name="button"><i class="fas fa-caret-down"></i></button>
       </div>
 
     </div>

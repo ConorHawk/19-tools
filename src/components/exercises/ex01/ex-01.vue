@@ -1,8 +1,8 @@
 <template lang="html">
-  <section class="flex flex-col h-full">
+  <section class="h-full flex" style="box-shadow: 0 0 250px rgba(0,0,0,0.5) inset;">
     <module-header :pages="numberOfPages" :tool-name="toolName"></module-header>
     <transition name="page-slide" mode="out-in">
-      <router-view class="flex-1 flex items-center justify-center overflow-hidden" :list="list" :refined-list="selectedStakeholders"></router-view>
+      <router-view class="flex-1 flex items-center justify-center py-12 m-auto" :list="list" :refined-list="selectedStakeholders"></router-view>
     </transition>
     <module-footer :pages="numberOfPages" :tool-name="toolName"></module-footer>
   </section>

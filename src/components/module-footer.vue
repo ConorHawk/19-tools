@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-black p-4 z-50 ">
+  <div class="w-full bg-black p-4 z-50 fixed pin-b">
     <div class="flex items-center container mx-auto">
       <transition name="fade" mode="out-in">
           <router-link v-if="currentPage !== 1" :to="'/ex-01/' + (currentPage - 1)" style="transition: 0.2s all;" class="mr-auto text-white no-underline border border-white rounded font-light px-6 py-2">Previous</router-link>

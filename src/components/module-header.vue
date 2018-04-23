@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-black p-4 z-50 flex justify-between items-center">
+  <div class="w-full bg-black p-4 z-50 flex justify-between items-center fixed pin-t">
     <div class=" w-1/3">
       <router-link class="font-lg text-white no-underline font-light" to="/"><i class="fas fa-caret-left"></i> Exit Tool</router-link>
     </div>

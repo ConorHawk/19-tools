@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="font-sans h-full overflow-hidden">
+  <div id="app" class="font-sans h-full overflow-hidden overflow-y-auto font-light">
     <!-- <nav-bar class="z-10"></nav-bar> -->
     <transition name="page-slide" mode="out-in">
       <router-view class="z-0"></router-view>

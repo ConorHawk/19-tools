@@ -1,17 +1,24 @@
 <template lang="html">
   <div class="">
-    <div class="font-sans container mx-auto">
-      <div class="flex justify-center">
-        <form class="text-center flex flex-col" v-on:submit.prevent="addItem()">
-          <label class="text-xl pb-1 font-light" for="text-xl">Enter at least 4 stakeholders here:</label><br>
-          <div class="border border-blue inline-flex rounded-lg overflow-hidden shadow-md">
-            <input class="p-4 text-2xl" v-model="inputtedStakeholder" type="text" name="">
-            <button class="bg-blue text-white text-2xl flex items-center py-1 px-4" type="submit" name="button"><i class="fas fa-plus"></i></button>
-          </div>
-        </form>
+    <div class="font-sans container mx-auto flex">
+      <div class="w-1/2 mx-2 px-2 border-r border-grey flex justify-center flex-col ">
+        <h2 class="font-normal pb-2">The page title?</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
-      <h2 class="font-light">Identified stakeholders</h2>
-      <list-container :list="list"></list-container>
+      <div class="w-1/2 mx-2 px-2">
+        <div class="flex justify-center">
+          <form class="text-center flex flex-col" v-on:submit.prevent="addItem()">
+            <label class="text-xl pb-1 font-light" for="text-xl">Enter at least 4 stakeholders here:</label><br>
+            <div class="border border-black inline-flex rounded overflow-hidden shadow-md">
+              <input class="p-4 text-2xl" v-model="inputtedStakeholder" type="text" name="">
+              <button class="bg-grey-darkest text-white text-2xl flex items-center py-1 px-4" type="submit" name="button"><i class="fas fa-plus"></i></button>
+            </div>
+          </form>
+        </div>
+        <br>
+        <h3 class="font-light">Identified stakeholders</h3>
+        <list-container :list="list"></list-container>
+      </div>
     </div>
   </div>
 

@@ -90,11 +90,11 @@
 }
 
 .list-btn-default {
-  @apply .bg-blue .text-white .text-xl .rounded .overflow-hidden .m-2 .font-light .flex .border .border-blue-dark .shadow-md;
+  @apply .bg-grey-darkest .text-white .text-xl .rounded-sm .overflow-hidden .m-2 .font-light .flex .border .border-black .shadow;
 }
 
 .list-btn-sort {
-  @apply .px-8 .py-2 .bg-blue .text-white .text-xl .rounded .overflow-hidden .m-2 .font-light .flex .border .border-blue-dark .shadow-md;
+  @apply .px-8 .py-2 .bg-grey-darkest .text-white .text-xl .rounded-sm .overflow-hidden .m-2 .font-light .flex .border .border-black .shadow;
 }
 
 .page-slide-enter-active, .page-slide-leave-active {

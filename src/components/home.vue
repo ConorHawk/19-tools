@@ -1,7 +1,22 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <router-link v-for="exercise in exercises" :to="exercise.route" :key="exercise.id">{{exercise.name}}</router-link>
+  <div class="container mx-auto p-12">
+    <h1 class="font-bold">{{ msg }}</h1>
+    <ul class="text-black">
+      <li>
+
+      </li>
+    </ul>
+    <table style="width:100%">
+      <tr class="text-left">
+        <th>Module</th>
+      </tr>
+      <tr v-for="exercise in exercises" :key="exercise.id">
+        <td class="border-b border-grey p-2">{{exercise.name}}</td>
+        <td class="border-b border-grey p-2"><router-link :to="exercise.route">Start Exercise</router-link></td>
+        <td class="border-b border-grey p-2"><router-link :to="exercise.finalRoute">Enter Data</router-link></td>
+      </tr>
+    </table>
+
   </div>
 </template>
 
@@ -13,8 +28,9 @@ export default {
       msg: 'AlignOrg Tools',
       exercises: [
         {
-          name: 'Exercise 1',
+          name: 'Stakeholder Requirements',
           route: '/ex-01',
+          finalRoute: '/ex-01/5',
           id: 'ex01'
         }
       ]
