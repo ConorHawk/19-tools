@@ -1,5 +1,5 @@
 <template lang="html">
-  <section class="h-full flex" style="box-shadow: 0 0 250px rgba(0,0,0,0.5) inset;">
+  <section class="min-h-full flex" style="box-shadow: 0 0 250px rgba(0,0,0,0.5) inset;">
     <module-header :pages="numberOfPages" :tool-name="toolName"></module-header>
     <transition name="page-slide" mode="out-in">
       <router-view class="flex-1 flex items-center justify-center py-12 m-auto" :list="list" :refined-list="selectedStakeholders"></router-view>
@@ -48,13 +48,17 @@ export default {
       this.list.splice(targetIndex, 0, tempObj)
     })
     EventBus.$on('add-stakeholder-requirement', stakeholderIndex => {
-      this.list[stakeholderIndex].requirements.push('')
+      var requirementObj = {
+        text: '',
+        id: Date.now()
+      }
+      this.list[stakeholderIndex].requirements.push(requirementObj)
     })
     EventBus.$on('update-note', payload => {
       var value = payload.value
       var noteIndex = payload.index
       var parentIndex = payload.parentIndex
-      this.list[parentIndex].requirements[noteIndex] = value
+      this.list[parentIndex].requirements[noteIndex].text = value
     })
     EventBus.$on('delete-note', payload => {
       // var value = payload.value

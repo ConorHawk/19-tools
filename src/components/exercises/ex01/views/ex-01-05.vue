@@ -14,11 +14,12 @@
         <tr class="border border-red" v-for="(item, index) in refinedList" v-bind:key="index">
           <td><input class="shadow-inner rounded-sm p-2 w-full" @input="editStakeholder(index, $event.target.value)" type="text" name="" :value="item.name"></td>
           <td >
-            <ol class="" v-if="item.requirements && item.requirements.length > 0">
-              <li v-for="(requirement, index2) in item.requirements" v-bind:key="'requirement' + index2">
-                <textarea class="shadow-inner rounded-sm p-2 my-1 w-full" @input="editRequirement(index, index2, $event.target.value)" type="text" name="" :value="requirement"></textarea>
-              </li>
-            </ol>
+            <div class="" v-if="item.requirements && item.requirements.length > 0">
+              <div v-for="(requirement, index2) in item.requirements" v-bind:key="'requirement' + index2" class="flex items-center">
+                <span class="pr-4">{{index2 + 1}}. </span>
+                <textarea class="shadow-inner rounded-sm p-2 my-1 w-full" @input="editRequirement(index, index2, $event.target.value)" type="text" name="" :value="requirement.text"></textarea>
+              </div>
+            </div>
             <button class="border-grey-darkest border text-grey-darkest text-xs px-2 py-1 rounded mt-2 float-right" @click="addRequirement(index)" type="button" name="button">Add requirement</button>
           </td>
         </tr>

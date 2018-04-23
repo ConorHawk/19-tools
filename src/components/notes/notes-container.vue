@@ -8,13 +8,12 @@
         </button>
       </div>
       <div class="flex flex-col bg-grey-lightest flex-1">
-        <transition-group name="list-complete" tag="div" class="list-container-default" v-bind:class="{'list-container-order':mode === 'order'}">
-
-          <div class="flex py-2 px-4 list-complete-item" v-for="(note, index) in activeNotes" v-bind:key="index">
+        <transition-group name="list-complete" tag="div" class="list-container-default flex flex-col">
+          <div class="flex py-2 px-4 list-complete-item" v-for="(note, index) in activeNotes" v-bind:key="note.id">
             <!-- <p class="p-2">{{index + 1}}.</p> -->
             <div class="flex w-full bg-white shadow rounded-sm overflow-hidden">
               <div class="p-2 flex-1">
-                <textarea rows="3" :value="note" v-on:input="changeNote($event.target.value, index)" class="tools-input"></textarea>
+                <textarea rows="3" :value="note.text" v-on:input="changeNote($event.target.value, index)" class="tools-input"></textarea>
               </div>
               <div class="flex flex-col">
                 <button :disabled="index === 0" class="text-white bg-grey-darkest px-1 text-sm py-2 flex-1" @click="moveNote(index, -1)" type="button" name="button"><i class="fas fa-caret-up"></i></button>
