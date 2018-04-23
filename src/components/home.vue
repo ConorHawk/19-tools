@@ -32,11 +32,17 @@ export default {
           route: '/ex-01',
           finalRoute: '/ex-01/5',
           id: 'ex01'
+        }, {
+          name: 'Gap Analysis',
+          route: '/ex-02',
+          finalRoute: '/ex-02',
+          id: 'ex02'
         }
       ]
     }
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
