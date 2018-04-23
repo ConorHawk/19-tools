@@ -37,25 +37,25 @@ export default new Router({
           path: '2',
           component: Ex01Pg02,
           meta: {
-            pageTitle: 'Add stakeholders2'
+            pageTitle: 'Select important stakeholders'
           }
         }, {
           path: '3',
           component: Ex01Pg03,
           meta: {
-            pageTitle: 'Add stakeholders3'
+            pageTitle: 'Prioritize stakeholders'
           }
         }, {
           path: '4',
           component: Ex01Pg04,
           meta: {
-            pageTitle: 'Add stakeholders4'
+            pageTitle: 'Add requirements'
           }
         }, {
           path: '5',
           component: Ex01Pg05,
           meta: {
-            pageTitle: 'Add stakeholders5'
+            pageTitle: 'Review'
           }
         }
       ]

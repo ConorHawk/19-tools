@@ -117,7 +117,7 @@
 }
 
 .tools-input {
-  @apply border border-grey .w-full .p-2 .resize-none;
+  @apply .border .w-full .p-2 .resize-none rounded shadow-inner;
 }
 
 .fade-enter-active, .fade-leave-active {
@@ -130,4 +130,32 @@
 
 html, body {
   height: 100%;
+}
+
+/*table stuff*/
+
+.tools-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tools-table td, .tools-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/*.tools-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}*/
+
+.tools-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: white;
+  font-weight: 300;
+}
+
+.transition-sm {
+  transition: 0.2s all;
 }

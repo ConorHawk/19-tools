@@ -1,29 +1,30 @@
 <template>
   <div class="flex justify-center">
-    <div class="flex w-1/2 border border-grey rounded-sm overflow-hidden shadow-lg">
-      <div class="flex flex-col bg-white border-r border-grey">
+    <div class="flex w-full rounded-sm overflow-hidden shadow-lg">
+      <div class="flex flex-col bg-white border-r">
         <button v-bind:class="{'bg-grey-darkest text-white': index == activeStakeholder}" v-for="(item, index) in list" v-bind:key="item.name" class="border-b text-left py-3 px-4 text-sm"  @click="changeStakeholder(index)" type="button" name="button">
-          <p class="font-medium pb-1">{{item.name}}</p>
+          <p class="pb-1">{{item.name}}</p>
           <p class="text-xs">{{item.requirements.length}} requirements</p>
         </button>
       </div>
-      <div class="flex flex-col bg-grey-light flex-1">
-        <div class="flex py-2 px-4 list-complete-item" v-for="(note, index) in activeNotes" v-bind:key="index">
-          <!-- <p class="p-2">{{index + 1}}.</p> -->
-          <div class="flex w-full bg-white shadow rounded-sm overflow-hidden">
-            <div class="p-2 flex-1">
-              <textarea rows="3" :value="note" v-on:input="changeNote($event.target.value, index)" class="tools-input"></textarea>
-            </div>
-            <div class="flex flex-col">
-              <button :disabled="index === 0" class="text-white bg-grey-darkest px-1 text-sm py-2 flex-1" @click="moveNote(index, -1)" type="button" name="button"><i class="fas fa-caret-up"></i></button>
-              <button :disabled="index === (requirementsCount - 1)" class="text-white bg-grey-darkest px-1 text-sm py-2 flex-1" @click="moveNote(index, 1)" type="button" name="button"><i class="fas fa-caret-down"></i></button>
+      <div class="flex flex-col bg-grey-lightest flex-1">
+        <transition-group name="list-complete" tag="div" class="list-container-default" v-bind:class="{'list-container-order':mode === 'order'}">
+
+          <div class="flex py-2 px-4 list-complete-item" v-for="(note, index) in activeNotes" v-bind:key="index">
+            <!-- <p class="p-2">{{index + 1}}.</p> -->
+            <div class="flex w-full bg-white shadow rounded-sm overflow-hidden">
+              <div class="p-2 flex-1">
+                <textarea rows="3" :value="note" v-on:input="changeNote($event.target.value, index)" class="tools-input"></textarea>
+              </div>
+              <div class="flex flex-col">
+                <button :disabled="index === 0" class="text-white bg-grey-darkest px-1 text-sm py-2 flex-1" @click="moveNote(index, -1)" type="button" name="button"><i class="fas fa-caret-up"></i></button>
+                <button :disabled="index === (requirementsCount - 1)" class="text-white bg-grey-darkest px-1 text-sm py-2 flex-1" @click="moveNote(index, 1)" type="button" name="button"><i class="fas fa-caret-down"></i></button>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="mt-auto pt-4">
-          <div class="border-t border-grey text-right">
-            <button class="m-2 p-2 text-grey-dark" @click="addRequirement(activeStakeholder)" type="button" name="button">Add requirement <i class="fas fa-plus"></i></button>
-          </div>
+        </transition-group>
+        <div class="mt-auto p-4">
+          <button class="border-grey-darkest border text-grey-darkest text-xs px-2 py-1 rounded mt-2 float-right" @click="addRequirement(activeStakeholder)" type="button" name="button">Add requirement <i class="fas fa-plus"></i></button>
         </div>
       </div>
     </div>

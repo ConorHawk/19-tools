@@ -1,23 +1,29 @@
 <template lang="html">
   <div class="">
     <div class="font-sans container mx-auto">
-      <table style="width:100%">
-        <tr>
-          <th class="text-left">Stakeholder</th>
-          <th class="text-left">Requirements</th>
+      <h2>Review</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <br>
+      <table class="w-full bg-white shadow-md tools-table">
+        <tr class="bg-grey-darkest text-white">
+          <th class="text-left border-b border-grey">Stakeholder
+            <button class="border-white border text-white text-xs px-2 py-1 rounded float-right" @click="addStakeholder()" type="button" name="button">Add new stakeholder</button>
+          </th>
+          <th class="text-left border-b border-grey">Requirements</th>
         </tr>
         <tr class="border border-red" v-for="(item, index) in refinedList" v-bind:key="index">
-          <td><input @input="editStakeholder(index, $event.target.value)" type="text" name="" :value="item.name"></td>
+          <td><input class="shadow-inner rounded-sm p-2 w-full" @input="editStakeholder(index, $event.target.value)" type="text" name="" :value="item.name"></td>
           <td >
-            <ol class="p-0" v-if="item.requirements && item.requirements.length > 0">
-              <li v-for="(requirement, index2) in item.requirements" v-bind:key="'requirement' + index2"><input @input="editRequirement(index, index2, $event.target.value)" type="text" name="" :value="requirement"></li>
+            <ol class="" v-if="item.requirements && item.requirements.length > 0">
+              <li v-for="(requirement, index2) in item.requirements" v-bind:key="'requirement' + index2">
+                <textarea class="shadow-inner rounded-sm p-2 my-1 w-full" @input="editRequirement(index, index2, $event.target.value)" type="text" name="" :value="requirement"></textarea>
+              </li>
             </ol>
-            <span v-else>-</span>
-            <button class="" @click="addRequirement(index)" type="button" name="button">Add requirement</button>
+            <button class="border-grey-darkest border text-grey-darkest text-xs px-2 py-1 rounded mt-2 float-right" @click="addRequirement(index)" type="button" name="button">Add requirement</button>
           </td>
         </tr>
       </table>
-      <button @click="addStakeholder()" type="button" name="button">Add new stakeholder</button>
+
     </div>
   </div>
 </template>
