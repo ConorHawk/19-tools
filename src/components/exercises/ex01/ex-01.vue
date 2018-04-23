@@ -83,41 +83,41 @@ export default {
       numberOfPages: 5,
       toolName: 'Stakeholder Requirements',
       list: [
-        {
-          name: 'test',
-          selected: true,
-          requirements: []
-        },
-        {
-          name: 'test2',
-          selected: true,
-          requirements: []
-        },
-        {
-          name: 'test3',
-          selected: true,
-          requirements: []
-        },
-        {
-          name: 'test4',
-          selected: false,
-          requirements: []
-        },
-        {
-          name: 'test5',
-          selected: false,
-          requirements: []
-        },
-        {
-          name: 'test6',
-          selected: false,
-          requirements: []
-        },
-        {
-          name: 'test7',
-          selected: false,
-          requirements: []
-        }
+        // {
+        //   name: 'test',
+        //   selected: true,
+        //   requirements: []
+        // },
+        // {
+        //   name: 'test2',
+        //   selected: true,
+        //   requirements: []
+        // },
+        // {
+        //   name: 'test3',
+        //   selected: true,
+        //   requirements: []
+        // },
+        // {
+        //   name: 'test4',
+        //   selected: false,
+        //   requirements: []
+        // },
+        // {
+        //   name: 'test5',
+        //   selected: false,
+        //   requirements: []
+        // },
+        // {
+        //   name: 'test6',
+        //   selected: false,
+        //   requirements: []
+        // },
+        // {
+        //   name: 'test7',
+        //   selected: false,
+        //   requirements: []
+        // }
       ]
     }
   },

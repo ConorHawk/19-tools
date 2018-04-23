@@ -16,7 +16,7 @@
           </form>
         </div>
         <br>
-        <h3 class="font-light">Identified stakeholders</h3>
+        <h3 v-show="list && list.length > 0" class="font-light">Identified stakeholders</h3>
         <list-container :list="list"></list-container>
       </div>
     </div>
