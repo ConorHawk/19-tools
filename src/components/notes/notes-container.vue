@@ -9,7 +9,7 @@
       </div>
       <div class="flex flex-col bg-grey-lightest flex-1">
         <transition-group name="list-complete" tag="div" class="list-container-default flex flex-col">
-          <div class="flex py-2 px-4 list-complete-item" v-for="(note, index) in activeNotes" v-bind:key="note.id">
+          <div class="flex py-2 px-4 list-complete-item w-full" v-for="(note, index) in activeNotes" v-bind:key="note.id">
             <!-- <p class="p-2">{{index + 1}}.</p> -->
             <div class="flex w-full bg-white shadow rounded-sm overflow-hidden">
               <div class="p-2 flex-1">

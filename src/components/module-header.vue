@@ -3,10 +3,10 @@
     <div class=" w-1/3">
       <router-link class="font-lg text-white no-underline font-light" to="/"><i class="fas fa-caret-left"></i> Exit Tool</router-link>
     </div>
-    <div class="flex w-1/3 justify-center">
+    <div class="hidden sm:flex w-1/3 justify-center">
       <router-link style="transition: 0.2s all;" v-bind:class="{'bg-white': index <= ( currentPage - 1)}" v-for="(page, index) in pages" v-bind:key="'page' + index" class="mx-1 rounded-full h-4 w-4 flex items-center justify-center border border-white" :to="'/ex-01/' + (index + 1)"></router-link>
     </div>
-    <div class="text-white w-1/3 text-right">
+    <div class="text-white w-2/3 sm:w-1/3 text-right">
       <h1 class="text-lg font-normal pb-2">{{toolName}}</h1>
       <p class="font-light">{{pageTitle}}</p>
     </div>

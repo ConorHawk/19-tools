@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="">
-    <div class="font-sans container mx-auto flex">
-      <div class="w-1/2 mx-2 px-2 border-r border-grey flex justify-center flex-col ">
+    <div class="font-sans container mx-auto flex flex-wrap">
+      <div class="w-full sm:w-1/2 p-4 border-r border-grey flex justify-center flex-col ">
         <h2 class="font-normal pb-2">Add stakeholders</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
-      <div class="w-1/2 mx-2 px-2">
+      <div class="w-full sm:w-1/2 p-4">
         <div class="flex justify-center">
           <form class="text-center flex flex-col" v-on:submit.prevent="addItem()">
             <label class="text-xl pb-1 font-light" for="text-xl">Enter at least 4 stakeholders here:</label><br>
@@ -51,7 +51,10 @@ export default {
         var item = {
           name: this.inputtedStakeholder,
           selected: false,
-          requirements: []
+          requirements: [{
+            text: '',
+            id: Date.now()
+          }]
         }
         // Otherwise send an event to the page controller to add an event item
         EventBus.$emit('add-list-item', item)

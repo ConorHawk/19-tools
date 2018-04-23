@@ -91,6 +91,11 @@
 
 .list-btn-default {
   @apply .bg-grey-darkest .text-white .text-xl .rounded-sm .overflow-hidden .m-2 .font-light .flex .border .border-black .shadow;
+  transition: 0.2s all;
+}
+
+.list-btn-default.duplicate {
+  @apply .bg-red-dark .border-red-darkest;
 }
 
 .list-btn-sort {
@@ -158,4 +163,8 @@ html, body {
 
 .transition-sm {
   transition: 0.2s all;
+}
+
+.transition-none {
+  transition: none !important
 }

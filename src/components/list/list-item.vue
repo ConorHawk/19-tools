@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="defaultMode" class="list-btn-default">
+    <div v-bind:class="{'duplicate': duplicateTimeout}" v-if="defaultMode" class="list-btn-default">
       <p class=" px-8 py-2">{{item.name}}</p>
       <button class="text-white bg-black px-1 text-sm" @click="removeItem()" type="button" name="button"><i class="fas fa-times"></i></button>
     </div>
@@ -26,6 +26,7 @@ export default {
   props: ['item', 'itemIndex', 'mode', 'listLength'],
   data: function () {
     return {
+      duplicateTimeout: false
     }
   },
   methods: {
@@ -45,10 +46,14 @@ export default {
     }
   },
   mounted: function () {
+    var self = this
     // Could use this in the future to highlight duplicate names
     EventBus.$on('highlight-duplicate', name => {
       if (name === this.item.name) {
-        console.log(name)
+        self.duplicateTimeout = true
+        setTimeout(function () {
+          self.duplicateTimeout = false
+        }, 500)
       }
     })
   },

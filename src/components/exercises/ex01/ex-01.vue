@@ -2,7 +2,7 @@
   <section class="min-h-full flex" style="box-shadow: 0 0 250px rgba(0,0,0,0.5) inset;">
     <module-header :pages="numberOfPages" :tool-name="toolName"></module-header>
     <transition name="page-slide" mode="out-in">
-      <router-view class="flex-1 flex items-center justify-center py-12 m-auto" :list="list" :refined-list="selectedStakeholders"></router-view>
+      <router-view class="flex-1 flex items-center justify-center py-12 m-auto" :list="list" :refined-list="selectedStakeholders" :unselected-list="unselectedStakeholders"></router-view>
     </transition>
     <module-footer :pages="numberOfPages" :tool-name="toolName"></module-footer>
   </section>
@@ -31,14 +31,14 @@ export default {
       this.list.splice(arrIndex, 1)
     })
     EventBus.$on('edit-list-item', payload => {
-      console.log(payload)
       this.list[payload.index].name = payload.value
     })
     EventBus.$on('select-list-item', arrIndex => {
+      var targetIndex = this.selectedStakeholders.length
       this.list[arrIndex].selected = !this.list[arrIndex].selected
       var tempObj = this.list[arrIndex]
       this.list.splice(arrIndex, 1)
-      tempObj.selected ? this.list.unshift(tempObj) : this.list.push(tempObj)
+      tempObj.selected ? this.list.splice(targetIndex, 0, tempObj) : this.list.push(tempObj)
     })
     EventBus.$on('move-item', payload => {
       var arrIndex = payload.index
@@ -129,6 +129,15 @@ export default {
       var arr = []
       for (var i = 0; i < this.list.length; i++) {
         if (this.list[i].selected) {
+          arr.push(this.list[i])
+        }
+      }
+      return arr
+    },
+    unselectedStakeholders: function () {
+      var arr = []
+      for (var i = 0; i < this.list.length; i++) {
+        if (!this.list[i].selected) {
           arr.push(this.list[i])
         }
       }
