@@ -47,6 +47,10 @@ export default {
       result.desiredResult = parseInt(value)
       result.gap = result.currentResult - result.desiredResult
     })
+    EventBus.$on('add-result', (parentIndex) => {
+      var resultObj = this.getResultObj()
+      this.table[parentIndex].results.push(resultObj)
+    })
   },
   beforeDestroy () {
     EventBus.$off()
@@ -99,6 +103,18 @@ export default {
         ]
       }
       return stakeholder
+    },
+    getResultObj: function () {
+      var result = {
+        statement: '',
+        splitStatement: [],
+        currentResult: null,
+        desiredResult: null,
+        gap: null,
+        id: Date.now() + 1,
+        valid: false
+      }
+      return result
     }
   },
   computed: {

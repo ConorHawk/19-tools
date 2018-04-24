@@ -35,7 +35,9 @@
           </td>
         </tr>
         <tr>
-          <td colspan="3"><button class="border-grey-darkest border text-grey-darkest text-xs px-2 py-1 rounded" type="button" name="button">Add result</button></td>
+          <td colspan="3">
+            <button @click="addResult(parentIndex)" class="border-grey-darkest border text-grey-darkest text-xs px-2 py-1 rounded" type="button" name="button">Add result</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -63,8 +65,10 @@ export default {
       EventBus.$emit('update-statement', parentIndex, index, value)
     },
     updateDesiredResult: function (parentIndex, index, value) {
-      console.log(parentIndex, index, value)
       EventBus.$emit('update-desired-result', parentIndex, index, value)
+    },
+    addResult: function (parentIndex) {
+      EventBus.$emit('add-result', parentIndex)
     }
   },
   computed: {
