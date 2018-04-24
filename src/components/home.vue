@@ -37,6 +37,11 @@ export default {
           route: '/ex-02',
           finalRoute: '/ex-02',
           id: 'ex02'
+        }, {
+          name: 'ANCHOR',
+          route: '/ex-04',
+          finalRoute: '/ex-04',
+          id: 'ex04'
         }
       ]
     }

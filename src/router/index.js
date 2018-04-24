@@ -13,6 +13,16 @@ import Ex01Pg05 from '@/components/exercises/ex01/views/ex-01-05'
 import Ex02 from '@/components/exercises/ex02/ex-02'
 import Ex02Pg01 from '@/components/exercises/ex02/views/ex-02-01'
 
+import Ex04 from '@/components/exercises/ex04/ex-04'
+import Ex04Pg01 from '@/components/exercises/ex04/views/ex-04-01'
+import Ex04Pg02 from '@/components/exercises/ex04/views/ex-04-02'
+import Ex04Pg03 from '@/components/exercises/ex04/views/ex-04-03'
+import Ex04Pg04 from '@/components/exercises/ex04/views/ex-04-04'
+import Ex04Pg05 from '@/components/exercises/ex04/views/ex-04-05'
+import Ex04Pg06 from '@/components/exercises/ex04/views/ex-04-06'
+import Ex04Pg07 from '@/components/exercises/ex04/views/ex-04-07'
+import Ex04Pg08 from '@/components/exercises/ex04/views/ex-04-08'
+
 Vue.use(Router)
 
 export default new Router({
@@ -76,6 +86,72 @@ export default new Router({
           component: Ex02Pg01,
           meta: {
             pageTitle: 'Add stakeholders'
+          }
+        }
+      ]
+    }, {
+      path: '/ex-04',
+      name: 'Exercise_04',
+      component: Ex04,
+      redirect: {
+        name: 'ex-04-01'
+      },
+      children: [
+        {
+          path: '1',
+          name: 'ex-04-01',
+          component: Ex04Pg01,
+          meta: {
+            pageTitle: 'Select stakeholder'
+          }
+        }, {
+          path: '2',
+          name: 'ex-04-02',
+          component: Ex04Pg02,
+          meta: {
+            pageTitle: 'A'
+          }
+        }, {
+          path: '3',
+          name: 'ex-04-03',
+          component: Ex04Pg03,
+          meta: {
+            pageTitle: 'N'
+          }
+        }, {
+          path: '4',
+          name: 'ex-04-04',
+          component: Ex04Pg04,
+          meta: {
+            pageTitle: 'Channel'
+          }
+        }, {
+          path: '5',
+          name: 'ex-04-05',
+          component: Ex04Pg05,
+          meta: {
+            pageTitle: 'Omit'
+          }
+        }, {
+          path: '6',
+          name: 'ex-04-06',
+          component: Ex04Pg06,
+          meta: {
+            pageTitle: 'Revenue'
+          }
+        }, {
+          path: '7',
+          name: 'ex-04-07',
+          component: Ex04Pg07,
+          meta: {
+            pageTitle: 'Employee ANCHOR'
+          }
+        }, {
+          path: '8',
+          name: 'ex-04-08',
+          component: Ex04Pg08,
+          meta: {
+            pageTitle: 'Results'
           }
         }
       ]
