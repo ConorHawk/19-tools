@@ -20,7 +20,6 @@ export default {
   mounted () {
     EventBus.$on('construct-new-stakeholder', () => {
       var newStakeholder = this.getStakeholderObject()
-      console.log(newStakeholder)
       this.table.push(newStakeholder)
     })
     EventBus.$on('update-stakeholder', (index, value) => {
@@ -28,24 +27,19 @@ export default {
     })
     EventBus.$on('update-statement', (parentIndex, index, value) => {
       var result = this.table[parentIndex].results[index]
-      var splitStatement = value.split(' ')
-      for (var i = 0; i < splitStatement.length; i++) {
-        var currentItem = parseInt(splitStatement[i])
-        // If the current string is a number
-        if (!isNaN(currentItem)) {
-          result.currentResult = currentItem
-          splitStatement[i] = 'VALUE_MARKER'
-        }
-      }
-      result.statement = value
-      result.gap = result.currentResult - result.desiredResult
-      result.splitStatement = splitStatement
+      result.currentResult = value
     })
     EventBus.$on('update-desired-result', (parentIndex, index, value) => {
       var result = this.table[parentIndex].results[index]
-      console.log(value)
-      result.desiredResult = parseInt(value)
-      result.gap = result.currentResult - result.desiredResult
+      result.desiredResult = value
+    })
+    EventBus.$on('update-measure', (parentIndex, index, value) => {
+      var result = this.table[parentIndex].results[index]
+      result.measure = value
+    })
+    EventBus.$on('update-measure-type', (parentIndex, index, value) => {
+      var result = this.table[parentIndex].results[index]
+      result.type = value
     })
     EventBus.$on('add-result', (parentIndex) => {
       var resultObj = this.getResultObj()
@@ -90,29 +84,17 @@ export default {
       var stakeholder = {
         id: Date.now(),
         stakeholder: '',
-        results: [
-          {
-            statement: '',
-            splitStatement: [],
-            currentResult: null,
-            desiredResult: null,
-            gap: null,
-            id: Date.now() + 1,
-            valid: false
-          }
-        ]
+        results: [this.getResultObj()]
       }
       return stakeholder
     },
     getResultObj: function () {
       var result = {
-        statement: '',
-        splitStatement: [],
         currentResult: null,
         desiredResult: null,
-        gap: null,
         id: Date.now() + 1,
-        valid: false
+        measure: '',
+        type: 0
       }
       return result
     }
