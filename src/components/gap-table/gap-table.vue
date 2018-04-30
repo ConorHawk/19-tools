@@ -4,7 +4,7 @@
       <tr class="bg-grey-darkest text-white">
         <th>
           Stakeholders
-          <button class="border-white border text-white text-xs px-2 py-1 rounded mt-2" @click="addStakeholder()" type="button" name="button">Add stakeholder</button>
+          <button class="ao-btn white hollow ao-btn-xs" @click="addStakeholder()" type="button" name="button">Add stakeholder</button>
         </th>
         <th>Measures</th>
         <th>Current results</th>
@@ -49,7 +49,7 @@
         </tr>
         <tr>
           <td colspan="3">
-            <button @click="addResult(parentIndex)" class="border-grey-darkest border text-grey-darkest text-xs px-2 py-1 rounded" type="button" name="button">Add measure</button>
+            <button @click="addResult(parentIndex)" class="ao-btn ao-btn-xs hollow" type="button" name="button">Add measure</button>
           </td>
         </tr>
       </tbody>

@@ -6,8 +6,8 @@
       <br>
       <table class="w-full bg-white shadow-md tools-table">
         <tr class="bg-grey-darkest text-white">
-          <th class="text-left border-b border-grey">Stakeholder
-            <button class="border-white border text-white text-xs px-2 py-1 rounded float-right" @click="addStakeholder()" type="button" name="button">Add new stakeholder</button>
+          <th class="border-b border-grey flex justify-between">Stakeholder
+            <button class="ao-btn ao-btn-xs hollow white float-right" @click="addStakeholder()" type="button" name="button">Add new stakeholder</button>
           </th>
           <th class="text-left border-b border-grey">Requirements</th>
         </tr>
@@ -20,7 +20,7 @@
                 <textarea placeholder="Enter requirement here" class="shadow-inner rounded-sm p-2 my-1 w-full" @input="editRequirement(index, index2, $event.target.value)" type="text" name="" :value="requirement.text"></textarea>
               </div>
             </div>
-            <button class="border-grey-darkest border text-grey-darkest text-xs px-2 py-1 rounded mt-2 float-right" @click="addRequirement(index)" type="button" name="button">Add requirement</button>
+            <button class="ao-btn hollow ao-btn-xs float-right" @click="addRequirement(index)" type="button" name="button">Add requirement</button>
           </td>
         </tr>
       </table>

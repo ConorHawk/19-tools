@@ -39,7 +39,6 @@ export default {
     EventBus.$on('update-employee', (value, index) => {
       this.stakeholders[index].employee = value
     })
-
   },
   beforeDestroy () {
     EventBus.$off()
